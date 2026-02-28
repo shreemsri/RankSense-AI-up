@@ -1,8 +1,10 @@
+groq
+python-dotenv
+spacy
+pdfplumber
+python-docx
 fastapi
 uvicorn
+pydantic
 python-multipart
-pdfplumber
-spacy
-python-docx
 websockets
-requests

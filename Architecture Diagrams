@@ -1,0 +1,68 @@
+# TalentScout AI: Architecture & Logic Diagrams
+
+Use these diagrams for your presentation/Excalidraw. They show the robust and scalable nature of the system.
+
+## 1. High-Level System Architecture
+This diagram shows how the user interacts with the system and how data flows between the components.
+
+```mermaid
+graph TD
+    User((User / Recruiter)) -->|Uploads PDF| NextJS[Next.js 15 Frontend]
+    NextJS -->|REST API / Multipart| FastAPI[FastAPI Backend]
+    FastAPI -->|WebSocket Stream| NextJS
+    
+    subgraph "Processing Engine"
+        FastAPI -->|Extract| PDFP[pdfplumber / docx]
+        PDFP -->|Raw Text| Spacy[spaCy NER Engine]
+        Spacy -->|Structured Entities| Scoring[Scoring Algorithm]
+    end
+    
+    subgraph "AI Intelligence"
+        FastAPI -->|Prompt Context| Groq[Groq LPU / LLM]
+        Groq -->|Summary & Interview Qs| FastAPI
+        FastAPI -->|Verification| GitHub[GitHub API]
+    end
+    
+    subgraph "Storage Layer"
+        FastAPI -->|Commit| SQLite[(SQLite + WAL)]
+        SQLite -->|PDF BLOBs| FastAPI
+    end
+
+    classDef primary fill:#06b6d4,stroke:#0891b2,color:#fff
+    classDef secondary fill:#7c3aed,stroke:#6d28d9,color:#fff
+    class NextJS,FastAPI primary
+    class Groq,Spacy secondary
+```
+
+## 2. NLP Logic Pipeline (The "Brain")
+This illustrates the step-by-step transformation of a raw file into a 100-point score.
+
+```mermaid
+sequenceDiagram
+    participant F as Raw File (PDF/DOCX)
+    participant E as Extraction (Regex + Layout)
+    participant N as NLP (spaCy NER)
+    participant B as Logic (Scoring Matrix)
+    participant A as AI (Groq LLM)
+    participant O as Final Analysis
+
+    F->>E: Content Extraction
+    Note over E: Normalization & Cleaning
+    E->>N: Entity Recognition
+    Note over N: Extract Names, Skills, Colleges
+    N->>B: Feature Engineering
+    Note over B: BERT-style Token Matching
+    B->>A: Contextual Prompting
+    A->>B: Narrative Feedback
+    B->>O: Result Aggregation (1-100)
+```
+
+## 3. Deployment & Scaling Logic
+How we handle performance at scale.
+
+*   **Concurrency**: Using `BackgroundTasks` in FastAPI to allow the server to remain responsive while the AI processes in the background.
+*   **Real-time**: WebSocket (WS) channel sends "Live Logs" so the user is never stuck looking at a static spinner.
+*   **Data Integrity**: SQLite with **Write-Ahead Logging (WAL)** mode enabled, allowing multiple reads and a single write concurrently without locking.
+
+---
+**Tip for Presentation**: Mention that while we use **spaCy** for fast entity recognition, the **LLM (Groq)** provides the "BERT-style" deep semantic understanding for the summary and interview questions, giving the best of both worlds: speed and intelligence.

@@ -8,8 +8,9 @@ DIRECTORY = os.path.dirname(os.path.abspath(__file__))
 
 class QuietHandler(http.server.SimpleHTTPRequestHandler):
     def log_message(self, format, *args):
-        # Suppress 404s for favicon and other noise if desired
-        if "favicon.ico" in args[0] or "prompts.json" in args[0]:
+        # Convert to str first — Python 3.13 passes HTTPStatus enum in args[0] for error logs
+        msg = str(args[0]) if args else ""
+        if "favicon.ico" in msg or "prompts.json" in msg:
             return
         # Filter out 200 OK logs to keep console clean, or keep them if preferred.
         # Keeping them for now but maybe less verbose?
