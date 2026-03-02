@@ -304,11 +304,11 @@ export default function LandingPage() {
   ];
 
   const demoCands = [
-    { name: "Shashank Tomar", role: "Full Stack Developer", loc: "Bangalore", cgpa: "9.2", score: 91, rank: 1, skills: ["React", "Python", "Docker", "Node.js", "PostgreSQL"], interns: 3, proj: 5, bk: { Internships: { v: 18, m: 20 }, "Skills & Certs": { v: 18, m: 20 }, Projects: { v: 13, m: 15 }, CGPA: { v: 9, m: 10 }, Achievements: { v: 8, m: 10 }, Experience: { v: 5, m: 5 }, "Extra-curricular": { v: 4, m: 5 }, Hackathons: { v: 5, m: 5 }, Languages: { v: 3, m: 3 }, "Online Presence": { v: 3, m: 3 }, Degree: { v: 3, m: 3 }, College: { v: 2, m: 2 } } },
-    { name: "Arjun Kumar", role: "ML Engineer", loc: "Hyderabad", cgpa: "8.8", score: 84, rank: 2, skills: ["PyTorch", "TensorFlow", "Python", "MLOps", "K8s"], interns: 2, proj: 6, bk: { Internships: { v: 13, m: 20 }, "Skills & Certs": { v: 17, m: 20 }, Projects: { v: 14, m: 15 }, CGPA: { v: 8, m: 10 }, Achievements: { v: 7, m: 10 }, Experience: { v: 4, m: 5 }, "Extra-curricular": { v: 3, m: 5 }, Hackathons: { v: 5, m: 5 }, Languages: { v: 2, m: 3 }, "Online Presence": { v: 3, m: 3 }, Degree: { v: 3, m: 3 }, College: { v: 2, m: 2 } } },
-    { name: "Nisha Patel", role: "Data Analyst", loc: "Mumbai", cgpa: "7.9", score: 72, rank: 3, skills: ["SQL", "Tableau", "Python", "Excel"], interns: 1, proj: 3, bk: { Internships: { v: 8, m: 20 }, "Skills & Certs": { v: 14, m: 20 }, Projects: { v: 9, m: 15 }, CGPA: { v: 7, m: 10 }, Achievements: { v: 5, m: 10 }, Experience: { v: 3, m: 5 }, "Extra-curricular": { v: 3, m: 5 }, Hackathons: { v: 0, m: 5 }, Languages: { v: 2, m: 3 }, "Online Presence": { v: 2, m: 3 }, Degree: { v: 2, m: 3 }, College: { v: 1, m: 2 } } },
-    { name: "Rahul Gupta", role: "Backend Developer", loc: "Pune", cgpa: "7.2", score: 65, rank: 4, skills: ["Java", "Spring Boot", "MySQL"], interns: 1, proj: 2, bk: { Internships: { v: 7, m: 20 }, "Skills & Certs": { v: 12, m: 20 }, Projects: { v: 7, m: 15 }, CGPA: { v: 6, m: 10 }, Achievements: { v: 3, m: 10 }, Experience: { v: 3, m: 5 }, "Extra-curricular": { v: 2, m: 5 }, Hackathons: { v: 0, m: 5 }, Languages: { v: 2, m: 3 }, "Online Presence": { v: 1, m: 3 }, Degree: { v: 2, m: 3 }, College: { v: 1, m: 2 } } },
-    { name: "Sara Mehta", role: "DevOps Engineer", loc: "Delhi", cgpa: "6.5", score: 48, rank: 5, skills: ["Linux", "Bash", "AWS"], interns: 0, proj: 2, bk: { Internships: { v: 0, m: 20 }, "Skills & Certs": { v: 10, m: 20 }, Projects: { v: 7, m: 15 }, CGPA: { v: 4, m: 10 }, Achievements: { v: 2, m: 10 }, Experience: { v: 0, m: 5 }, "Extra-curricular": { v: 1, m: 5 }, Hackathons: { v: 0, m: 5 }, Languages: { v: 1, m: 3 }, "Online Presence": { v: 1, m: 3 }, Degree: { v: 2, m: 3 }, College: { v: 0, m: 2 } } },
+    { name: "Shashank Tomar", role: "Full Stack Developer", loc: "Bangalore", cgpa: "9.2", score: 91, rank: 1, skills: ["React", "Python", "Docker", "Node.js", "PostgreSQL"], interns: 3, proj: 5, bk: { Internships: { v: 20, m: 20 }, "Skills & Certs": { v: 18, m: 20 }, Projects: { v: 15, m: 15 }, CGPA: { v: 9, m: 10 }, Achievements: { v: 8, m: 10 }, Experience: { v: 5, m: 5 }, "Extra-curricular": { v: 4, m: 5 }, Languages: { v: 3, m: 3 }, "Online Presence": { v: 3, m: 3 }, Degree: { v: 3, m: 3 }, College: { v: 2, m: 2 }, School: { v: 1, m: 2 } } },
+    { name: "Arjun Kumar", role: "ML Engineer", loc: "Hyderabad", cgpa: "8.8", score: 84, rank: 2, skills: ["PyTorch", "TensorFlow", "Python", "MLOps", "K8s"], interns: 2, proj: 6, bk: { Internships: { v: 20, m: 20 }, "Skills & Certs": { v: 17, m: 20 }, Projects: { v: 15, m: 15 }, CGPA: { v: 9, m: 10 }, Achievements: { v: 6, m: 10 }, Experience: { v: 4, m: 5 }, "Extra-curricular": { v: 3, m: 5 }, Languages: { v: 2, m: 3 }, "Online Presence": { v: 3, m: 3 }, Degree: { v: 3, m: 3 }, College: { v: 1, m: 2 }, School: { v: 1, m: 2 } } },
+    { name: "Nisha Patel", role: "Data Analyst", loc: "Mumbai", cgpa: "7.9", score: 72, rank: 3, skills: ["SQL", "Tableau", "Python", "Excel"], interns: 1, proj: 3, bk: { Internships: { v: 10, m: 20 }, "Skills & Certs": { v: 14, m: 20 }, Projects: { v: 15, m: 15 }, CGPA: { v: 8, m: 10 }, Achievements: { v: 4, m: 10 }, Experience: { v: 3, m: 5 }, "Extra-curricular": { v: 3, m: 5 }, Languages: { v: 2, m: 3 }, "Online Presence": { v: 2, m: 3 }, Degree: { v: 2, m: 3 }, College: { v: 1, m: 2 }, School: { v: 1, m: 2 } } },
+    { name: "Rahul Gupta", role: "Backend Developer", loc: "Pune", cgpa: "7.2", score: 65, rank: 4, skills: ["Java", "Spring Boot", "MySQL"], interns: 1, proj: 2, bk: { Internships: { v: 10, m: 20 }, "Skills & Certs": { v: 12, m: 20 }, Projects: { v: 10, m: 15 }, CGPA: { v: 7, m: 10 }, Achievements: { v: 4, m: 10 }, Experience: { v: 3, m: 5 }, "Extra-curricular": { v: 2, m: 5 }, Languages: { v: 2, m: 3 }, "Online Presence": { v: 1, m: 3 }, Degree: { v: 2, m: 3 }, College: { v: 1, m: 2 }, School: { v: 1, m: 2 } } },
+    { name: "Sara Mehta", role: "DevOps Engineer", loc: "Delhi", cgpa: "6.5", score: 48, rank: 5, skills: ["Linux", "Bash", "AWS"], interns: 0, proj: 2, bk: { Internships: { v: 0, m: 20 }, "Skills & Certs": { v: 10, m: 20 }, Projects: { v: 10, m: 15 }, CGPA: { v: 7, m: 10 }, Achievements: { v: 2, m: 10 }, Experience: { v: 0, m: 5 }, "Extra-curricular": { v: 1, m: 5 }, Languages: { v: 1, m: 3 }, "Online Presence": { v: 1, m: 3 }, Degree: { v: 2, m: 3 }, College: { v: 0, m: 2 }, School: { v: 1, m: 2 } } },
   ];
 
   const getScoreColor = (s: number) => (s >= 80 ? "var(--emerald)" : s >= 60 ? "var(--amber)" : "var(--rose)");
@@ -598,18 +598,18 @@ export default function LandingPage() {
               <div className="cc-badge badge-hire">HIRE</div>
               <div className="cc-factors">
                 {[
-                  { n: "Internships", s: 18, m: 20, c: "var(--cyan)" },
+                  { n: "Internships", s: 20, m: 20, c: "var(--cyan)" },
                   { n: "Skills & Certs", s: 18, m: 20, c: "var(--violet2)" },
-                  { n: "Projects", s: 13, m: 15, c: "var(--emerald)" },
+                  { n: "Projects", s: 15, m: 15, c: "var(--emerald)" },
                   { n: "CGPA", s: 9, m: 10, c: "var(--amber)" },
                   { n: "Achievements", s: 8, m: 10, c: "var(--rose)" },
                   { n: "Experience", s: 5, m: 5, c: "var(--cyan)" },
                   { n: "Extra-curricular", s: 4, m: 5, c: "var(--violet2)" },
-                  { n: "Hackathons", s: 5, m: 5, c: "var(--emerald)" },
-                  { n: "Languages", s: 3, m: 3, c: "var(--amber)" },
-                  { n: "Online Presence", s: 3, m: 3, c: "var(--cyan)" },
-                  { n: "Degree", s: 3, m: 3, c: "var(--violet2)" },
-                  { n: "College", s: 2, m: 2, c: "var(--emerald)" },
+                  { n: "Degree", s: 3, m: 3, c: "var(--emerald)" },
+                  { n: "Online Presence", s: 3, m: 3, c: "var(--amber)" },
+                  { n: "Languages", s: 3, m: 3, c: "var(--cyan)" },
+                  { n: "College", s: 2, m: 2, c: "var(--violet2)" },
+                  { n: "School", s: 1, m: 2, c: "var(--emerald)" },
                 ].map((f, i) => (
                   <div key={i} className="cc-factor">
                     <div className="cc-f-row"><span className="cc-f-name">{f.n}</span><span className="cc-f-score">{f.s}/{f.m}</span></div>
@@ -647,16 +647,16 @@ export default function LandingPage() {
                 {[
                   { n: "Internships", s: 0, m: 20, c: "var(--cyan)" },
                   { n: "Skills & Certs", s: 10, m: 20, c: "var(--violet2)" },
-                  { n: "Projects", s: 7, m: 15, c: "var(--emerald)" },
-                  { n: "CGPA", s: 4, m: 10, c: "var(--amber)" },
+                  { n: "Projects", s: 10, m: 15, c: "var(--emerald)" },
+                  { n: "CGPA", s: 7, m: 10, c: "var(--amber)" },
                   { n: "Achievements", s: 2, m: 10, c: "var(--rose)" },
                   { n: "Experience", s: 0, m: 5, c: "var(--cyan)" },
                   { n: "Extra-curricular", s: 1, m: 5, c: "var(--violet2)" },
-                  { n: "Hackathons", s: 0, m: 5, c: "var(--emerald)" },
-                  { n: "Languages", s: 1, m: 3, c: "var(--amber)" },
-                  { n: "Online Presence", s: 1, m: 3, c: "var(--cyan)" },
-                  { n: "Degree", s: 2, m: 3, c: "var(--violet2)" },
-                  { n: "College", s: 0, m: 2, c: "var(--emerald)" },
+                  { n: "Degree", s: 2, m: 3, c: "var(--emerald)" },
+                  { n: "Online Presence", s: 1, m: 3, c: "var(--amber)" },
+                  { n: "Languages", s: 1, m: 3, c: "var(--cyan)" },
+                  { n: "College", s: 0, m: 2, c: "var(--violet2)" },
+                  { n: "School", s: 1, m: 2, c: "var(--emerald)" },
                 ].map((f, i) => (
                   <div key={i} className="cc-factor">
                     <div className="cc-f-row"><span className="cc-f-name">{f.n}</span><span className="cc-f-score">{f.s}/{f.m}</span></div>
@@ -682,10 +682,9 @@ export default function LandingPage() {
                       { n: "Achievements", v: 10, c: "#F43F5E" },
                       { n: "Experience", v: 5, c: "#0EA5E9" },
                       { n: "Extra-curricular", v: 5, c: "#A78BFA" },
-                      { n: "Hackathons", v: 5, c: "#2DD4BF" },
-                      { n: "Languages", v: 3, c: "#34D399" },
-                      { n: "Online Presence", v: 3, c: "#FB923C" },
                       { n: "Degree", v: 3, c: "#E879F9" },
+                      { n: "Online Presence", v: 3, c: "#FB923C" },
+                      { n: "Languages", v: 3, c: "#34D399" },
                       { n: "College", v: 2, c: "#67E8F9" },
                       { n: "School", v: 2, c: "#FDE68A" },
                     ];
@@ -718,11 +717,10 @@ export default function LandingPage() {
                   { n: "Achievements", v: 10, c: "#F43F5E" },
                   { n: "Experience", v: 5, c: "#0EA5E9" },
                   { n: "Extra-curricular", v: 5, c: "#A78BFA" },
-                  { n: "Hackathons", v: 5, c: "#2DD4BF" },
-                  { n: "Languages", v: 3, c: "#34D399" },
+                  { n: "Degree Quality", v: 3, c: "#E879F9" },
                   { n: "Online Presence", v: 3, c: "#FB923C" },
-                  { n: "Degree Type", v: 3, c: "#E879F9" },
-                  { n: "College Rank", v: 2, c: "#67E8F9" },
+                  { n: "Languages", v: 3, c: "#34D399" },
+                  { n: "College Tier", v: 2, c: "#67E8F9" },
                   { n: "School Marks", v: 2, c: "#FDE68A" },
                 ].map((item, idx) => (
                   <div key={idx} className="donut-legend-item">

@@ -1,6 +1,5 @@
 groq
 python-dotenv
-spacy
 pdfplumber
 python-docx
 fastapi
@@ -8,3 +7,7 @@ uvicorn
 pydantic
 python-multipart
 websockets
+pytesseract
+pdf2image
+PyMuPDF
+Pillow

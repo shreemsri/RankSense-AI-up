@@ -1,21 +1,10 @@
 # TalentScout AI // NEURAL_RESUME_INTELLIGENCE
 
-**Next-Gen AI-Powered Resume Scoring & Intelligence System**
+**Next-Gen AI-Powered Resume Scoring & Forensic Intelligence System**
 
 ![TalentScout Dashboard](dashboard.png)
 
-TalentScout AI is an advanced resume parsing and ranking engine designed for high-volume recruitment. Moving beyond simple keyword matching, it leverages **Groq (LLaMA-3.1-8b)** for intelligent structural extraction, a deterministic 12-factor scoring algorithm, and a real-time **RAG pipeline** to interact with candidate data. 
-
----
-
-## 🚀 Key Features
-
-- **Intelligent Extraction**: Uses Groq (LLaMA-3.1-8b) to convert unstructured PDF/DOCX text into structured JSON fields (skills, CGPA, internships, projects) with built-in hallucination guards.
-- **JD Context Matching**: Paste a Job Description to recalculate scores dynamically based on context and alignment. Flags missing skills and boosts matching ones.
-- **GitHub Verification**: Auto-detects GitHub profiles, cross-referencing claimed skills against actual commit activity and repositories via the GitHub API.
-- **RAG Pipeline (Chat with Resume)**: Ask direct questions to any resume ("Does Priya have Docker experience in production?"). Answers are grounded explicitly in the candidate's text.
-- **AI Email Drafting**: One-click generation of personalized accept/reject emails via LLM, complete with candidate highlights.
-- **Real-Time Telemetry**: WebSocket-powered live stream of processing steps for absolute transparency. No black boxes.
+TalentScout AI is an advanced resume parsing, forensic analysis, and ranking engine designed for high-stakes recruitment. It leverages **Groq (LLaMA-3.1-8b)** for intelligent extraction, **Tesseract OCR** for visual verification, and a deterministic 12-factor scoring algorithm to eliminate hiring bias and prevent resume manipulation.
 
 ---
 
@@ -24,7 +13,7 @@ TalentScout AI is an advanced resume parsing and ranking engine designed for hig
 ```mermaid
 graph TD
     %% Frontend
-    subgraph Frontend [Next.js Dashboard - Port 3000]
+    subgraph Frontend [Next.js Dashboard - Port 3001]
         UI[User Interface]
         Upload[Drag & Drop Upload]
         JD[Job Description Input]
@@ -39,12 +28,13 @@ graph TD
         WS[WebSocket Broadcaster]
     end
 
-    %% AI Pipeline
-    subgraph AI_Pipeline [Neural Pipeline]
+    %% Forensic & AI Pipeline
+    subgraph AI_Pipeline [Forensic Pipeline]
         Ext[Text Extractor: pdfplumber/docx]
+        OCR[Tesseract OCR: Visual Layer]
         LLM[Groq: LLaMA-3.1-8b JSON Structuring]
         Score[12-Factor Deterministic Scorer]
-        RAG[RAG Vector DB & Query]
+        Security[Prompt Injection & Keyword Scanner]
     end
 
     %% External & DB
@@ -56,85 +46,68 @@ graph TD
     API -- "2. Dispatch" --> Router
     Router -- "Queue" --> AsyncQ
     AsyncQ -- "Process" --> Ext
-    Ext -- "Raw Text" --> LLM
+    Ext -- "Visual Check" --> OCR
+    OCR -- "Clean Text" --> Security
+    Security -- "Verified Signals" --> LLM
     LLM -- "Verify Skills" --> GH
     LLM -- "Structured JSON" --> Score
     Score -- "Rank Data" --> DB
     Score -- "Live Logs" --> WS
-    RAG -- "Query Embeddings" --> DB
     WS -- "Telemetry Updates" --> Sockets
     Sockets -- "Update Dashboard" --> UI
 ```
 
 ---
 
+## 🔄 The TalentScout Process (Workflow)
+
+1.  **Ingestion & Forensic X-Ray**: Upon upload, the system performs a dual-path extraction. It reads the raw digital text while simultaneously using **Tesseract OCR** to see what a human sees.
+2.  **Security Firewall**: The text is immediately scanned for **Prompt Injection** (malicious hidden instructions) and **Keyword Stuffing** (hidden invisible text). 
+3.  **Neural Structuring**: Cleaned text is passed to **Groq (Llama-3)** which extracts structured JSON data (Internships, CGPA, Projects, etc.) with 98% accuracy.
+4.  **Deterministic Scoring**: Every candidate is graded on a **100-point scale** across 12 weighted criteria. A **JD Alignment Bonus** is applied if the candidate's skills mathematically match the provided Job Description.
+5.  **GitHub Verification**: If a GitHub link is found, we query the **GitHub API** to cross-reference claimed skills with real-world commit history.
+6.  **AI Synthesis**: The engine generates a human-readable synthesis report, including strengths, weaknesses, and tailored interview questions.
+
+---
+
+## 🚀 Key Features
+
+- **Forensic Security**: Detects and flags malicious prompt injections and hidden "invisible" keywords.
+- **OCR-Priority Scoring**: Ignores hidden text layers by prioritizing the visual (OCR) layer for scoring accuracy.
+- **12-Factor Ranker**: A research-backed scoring model covering internships, projects, CGPA, achievements, and more.
+- **JD Alignment**: Dynamically recalculates scores based on specific Job Description requirements.
+- **GitHub Trust Engine**: Verifies technical claims via live GitHub profile analysis.
+- **Neural Telemetry**: Real-time WebSocket logs showing the "AI Thinking Process" as it analyzes each resume.
+- **Compact Synthesis**: AI-generated executive summaries and pros/cons lists optimized for rapid scanning.
+- **Interactive Chat**: Ask the AI direct questions about any candidate's experience.
+
+---
+
 ## 🛠️ Local Development Setup
 
-**Prerequisites**: Python 3.9+ & Node.js 18+
+**Prerequisites**: Python 3.9+, Node.js 18+, Tesseract OCR (Windows)
 
-### 1. Clone the repository
+### 1. Clone & Setup
 ```bash
-git clone https://github.com/shashank-tomar0/RankSense-AI.git
-cd RankSense-AI
+git clone https://github.com/shashank-tomar0/TalentScout-AI.git
+cd TalentScout-AI
 ```
 
-### 2. Environment Variables
-Create a `.env` file in the backend root and configure your Groq API key:
+### 2. Configure Keys
+Create a `.env` file in the backend root:
 ```env
-GROQ_API_KEY=your_groq_api_key_here
+GROQ_API_KEY=your_groq_api_key
 ```
 
 ### 3. Start the System (One-Click)
-We provide a unified batch script to install dependencies and boot the backend server:
 ```bash
 # Windows
 start_talentscout.bat
 ```
-*(This launches the FastAPI application on `http://localhost:8000`)*
-
-### 4. Start the Frontend
-In a new terminal, spin up the Next.js UI:
-```bash
-cd frontend
-npm install
-npm run dev
-```
-*(This launches the Talentscout Dashboard on `http://localhost:3000`)*
-
----
-
-## 🧠 How the Backend Pipeline Works
-
-When files are uploaded, `main.py` executes a heavily optimized pipeline:
-
-1. **Async Ingestion**: Files are received via FastAPI `BackgroundTasks`. The server never blocks; large batches process in parallel.
-2. **Text Normalization**: `pdfplumber` and `python-docx` extract layout-preserved text. 
-3. **Neural Extraction**: Unstructured text is passed to **Groq**. Prompt engineering coerces the LLM to output a strict JSON schema containing Experience, Projects, Skills, and Metrics.
-4. **Gap Analysis & Scoring**: The engine calculates a dynamic score based on the extracted JSON vs the Job Description. It weighs Internships (20%), Projects (15%), Skills (20%), and CGPA (10%) deterministically.
-5. **Persistence & Broadcasting**: Results are persisted in SQLite. A JSON payload is concurrently broadcast via **WebSockets**, instantly updating the UI's real-time radar charts and rank table.
-
----
-
-## 🌍 Production Deployment Guide
-
-To deploy TalentScout AI for a production hackathon showcase, we recommend splitting the architecture:
-
-### Frontend (Vercel)
-1. Fork/Push this repository to GitHub.
-2. Go to [Vercel](https://vercel.com) and click **"Add New Project"**.
-3. Import your repository. 
-4. Set the **Framework Preset** to `Next.js` and the **Root Directory** to `frontend`.
-5. Click **Deploy**. Vercel will automatically provision a global CDN for the UI.
-
-### Backend (Render or Railway)
-1. Go to [Render](https://render.com) and create a new **Web Service**.
-2. Connect your GitHub repository.
-3. Set the **Build Command**: `pip install -r requirements.txt`
-4. Set the **Run Command**: `uvicorn main:app --host 0.0.0.0 --port 10000`
-5. Add your Environment Variables (e.g., `GROQ_API_KEY`).
-6. Click **Deploy**.
-
-**Important**: Once your backend is deployed, copy its public URL (e.g., `https://talentscout-api.onrender.com`) and update your Frontend's `.env.local` to point the UI to your live API.
+This launches:
+- **Backend API**: `http://localhost:8000`
+- **Dashboard UI**: `http://localhost:3001`
+- **Legacy ATS Dashboard**: `http://localhost:3000`
 
 ---
 
