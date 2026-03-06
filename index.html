@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
-    <title>RankSense AI — Smart Resume Screening</title>
+    <title>TalentScout AI — Smart Resume Screening</title>
 
     <style>
         :root {
@@ -114,7 +114,7 @@
     <header class="p-4 border-b border-green-900 flex justify-between items-center bg-black/80 backdrop-blur z-10">
         <div class="flex items-center gap-4">
             <div class="w-3 h-3 bg-green-500 animate-pulse rounded-full"></div>
-            <h1 class="text-2xl font-bold tracking-widest glow-text glitch cursor-default">RankSense<span
+            <h1 class="text-2xl font-bold tracking-widest glow-text glitch cursor-default">TalentScout<span
                     class="opacity-50">.AI</span></h1>
         </div>
         <div class="text-xs space-x-4 opacity-70">
@@ -191,7 +191,7 @@
             <!-- Team Xnords Branding -->
             <div class="mt-auto pt-4 border-t border-green-900/30 text-center opacity-50 text-[10px]">
                 <p>Built by <span class="font-bold text-green-400">Team Xnords</span></p>
-                <p>RankSense AI • 2026</p>
+                <p>TalentScout AI • 2026</p>
             </div>
         </aside>
 
@@ -234,7 +234,7 @@
             <div class="h-32 border-t border-green-900 bg-black p-2 font-mono text-[11px] overflow-y-auto"
                 id="terminal-container">
                 <div id="terminal-logs" class="space-y-0.5">
-                    <p class="opacity-50">RankSense AI ready. Upload resumes to begin.</p>
+                    <p class="opacity-50">TalentScout AI ready. Upload resumes to begin.</p>
                 </div>
             </div>
         </section>
@@ -479,7 +479,7 @@
                 document.getElementById('net-status').innerText = "Connected";
                 document.getElementById('net-status').classList.remove('text-red-500');
                 document.getElementById('net-status').classList.add('text-green-500');
-                addLog("> Connected to RankSense server.");
+                addLog("> Connected to TalentScout AI server.");
                 if (reconnectInterval) { clearInterval(reconnectInterval); reconnectInterval = null; }
             };
 
@@ -609,19 +609,19 @@
 
         // --- Inspector Logic ---
         const BREAKDOWN_LABELS = {
-            internships: 'Internships',
-            skills: 'Skills/Certs',
-            projects: 'Projects',
-            cgpa: 'CGPA',
-            achievements: 'Achievements',
-            hackathons: 'Hackathons/Competitive',
-            experience: 'Experience',
-            extra_curricular: 'Extra-Curricular',
-            languages: 'Language Fluency',
-            online_presence: 'Online Presence',
-            degree: 'Degree Type',
-            college_rank: 'College Ranking',
-            school_marks: 'School Marks'
+            internships: "Prior Internships",
+            skills: "Technical Skills",
+            projects: "Projects",
+            cgpa: "CGPA / Academic",
+            achievements: "Quantifiable Achievements",
+            experience: "Work Experience",
+            extra_curricular: "Extra-Curricular",
+            degree: "Degree Quality",
+            online_presence: "Online Presence",
+            languages: "Language Fluency",
+            college_rank: "College Tier",
+            school_marks: "School Marks",
+            integrity: "Integrity Score"
         };
 
         function openInspector(index) {

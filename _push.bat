@@ -6,7 +6,7 @@ git remote -v
 echo "=== Adding ==="
 git add .
 echo "=== Committing ==="
-git commit -m "Refactor: Finalized Hackathon Release (RankSense AI to TalentScout AI)"
+git commit -m "Refactor: Finalized Hackathon Release (TalentScout AI Upgrade)"
 echo "=== Pushing ==="
 git push origin HEAD --force
 echo "Done."

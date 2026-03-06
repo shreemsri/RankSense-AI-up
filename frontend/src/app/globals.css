@@ -265,3 +265,24 @@ section {
     cursor: auto !important;
   }
 }
+
+/* Compact Prose for AI Synthesis */
+.prose-compact {
+  font-size: 0.825rem !important;
+  line-height: 1.5 !important;
+}
+
+.prose-compact :where(p, ul, ol, li):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  margin-top: 0.4em !important;
+  margin-bottom: 0.4em !important;
+}
+
+.prose-compact :where(h1, h2, h3, h4):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  margin-top: 0.8em !important;
+  margin-bottom: 0.3em !important;
+}
+
+.prose-compact :where(li):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  margin-top: 0.1em !important;
+  margin-bottom: 0.1em !important;
+}
